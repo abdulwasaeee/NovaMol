@@ -307,6 +307,39 @@ st.markdown("""
     [data-testid="stMetricValue"] {
         color: var(--primary-purple) !important;
     }
+    
+    /* Force select/dropdown background to light and text to black (global and sidebar) */
+    .stSelectbox [data-baseweb="select"] > div,
+    [data-testid="stSidebar"] .stSelectbox > div > div,
+    [role="listbox"],
+    [role="option"],
+    div[role="listbox"],
+    div[role="option"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    /* Ensure dropdown toggle (selected value) is light */
+    .stSelectbox [data-baseweb="select"] [data-testid="stMarkdownContainer"] ,
+    .stSelectbox [data-baseweb="select"] > div > div {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
+    
+    /* Hover and selected option styling for readability */
+    [role="option"]:hover,
+    [role="option"][aria-selected="true"],
+    .stSelectbox [role="option"]:hover,
+    .stSelectbox [role="option"][aria-selected="true"] {
+        background-color: #f0f0f0 !important;
+        color: #000000 !important;
+    }
+    
+    /* Cover BaseWeb/internal menu classes generically */
+    [class*="listbox"], [class*="option"], [class*="menu"] [role="option"] {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -334,11 +367,8 @@ TARGET_DATASETS = {
     "Lung Cancer (EGFR)": "CHEMBL203",
     "Colon Cancer (VEGFR2)": "CHEMBL240",
     "Breast Cancer (ERα)": "CHEMBL226",
-    "Leukemia (BCR-ABL)": "CHEMBL4800",
     "Liver Cancer (c-Met)": "CHEMBL1978",
-    "CNS / Alzheimer's (BACE1)": "CHEMBL2094",
     "Antibacterial (DHFR)": "CHEMBL202",
-    "Antiviral (HIV-1 Protease)": "CHEMBL246",
 }
 
 selected_target_name = st.sidebar.selectbox(
