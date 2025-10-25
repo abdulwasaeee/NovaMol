@@ -108,5 +108,3 @@ Navigate to the "Launch NovaMol App" page from the sidebar to start using the to
 
 <!-- end list -->
 
-```
-```
